@@ -1,0 +1,8 @@
+ruta api
+http://tu_ip:8086/api/cascaron
+
+
+
+ejecutar manualmente
+waitress-serve --port=5000 app:app
+
