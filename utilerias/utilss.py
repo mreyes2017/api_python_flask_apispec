@@ -27,6 +27,7 @@ from flask_apispec.extension import FlaskApiSpec
 # Servicios
 
 from api.cascaronApi import TodoA
+from api.jwtApi import TodoJWT
 
 
 import json
@@ -34,4 +35,7 @@ from flask import request,jsonify
 from flask_restful import Resource, fields, marshal,reqparse,abort
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import JWTManager
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+
 

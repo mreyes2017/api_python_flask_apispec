@@ -1,4 +1,6 @@
 from utilerias.utilss import *
+from flask_jwt_extended import jwt_required
+
 
 class CASCARONRequestSchema(Schema):
     nombre1 = fields.String(required=True, description="Primer Nombre")
@@ -9,6 +11,7 @@ class CASCARONRequestSchema(Schema):
 class TodoA(MethodResource, Resource):
     @doc(description='Ejemplo de una api REST con flask_restful y apispec.', tags=['CASCARON'])
     @use_kwargs(CASCARONRequestSchema, location=('json'))
+    @jwt_required()
     def post(self, **kwargs):
         nombre1 = kwargs.get("nombre1")
         nombre2 = kwargs.get("nombre2")
