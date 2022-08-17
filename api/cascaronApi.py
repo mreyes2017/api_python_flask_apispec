@@ -9,7 +9,21 @@ class CASCARONRequestSchema(Schema):
     apellido2 = fields.String(required=False, description="Segundo Apellido")
 
 class TodoA(MethodResource, Resource):
-    @doc(description='Ejemplo de una api REST con flask_restful y apispec.', tags=['CASCARON'])
+    @doc(description='Ejemplo de una api REST con flask_restful y apispec.', 
+          params={
+ 'Authorization': {
+ 'description':
+ 'Authorization HTTP header with JWT token, like: Authorization: Bearer token string',
+ 'in':
+ 'header',
+ 'type':
+ 'string',
+ 'required':
+ True
+ }
+ }
+         
+         ,tags=['CASCARON'])
     @use_kwargs(CASCARONRequestSchema, location=('json'))
     @jwt_required()
     def post(self, **kwargs):
